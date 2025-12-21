@@ -1,18 +1,19 @@
-﻿using tyuiu.cources.programming.interfaces.Sprint5;
+﻿using System.IO;
+using tyuiu.cources.programming.interfaces.Sprint5;
 namespace Tyuiu.IvanovMS.Sprint5.Task1.V24.Lib
 {
     public class DataService : ISprint5Task1V24
     {
         public string SaveToFileTextData(int startValue, int stopValue)
         {
-            string path = Path.GetTempFileName();
+            string path = $@"{Directory.GetCurrentDirectory()}\OutPutFileTask1.txt";
             
             FileInfo fileInfo = new FileInfo(path);
             bool fileExists = fileInfo.Exists;
 
             if (fileExists)
             {
-                File.Exists(path);
+                File.Delete(path);
             }
 
             double y;
