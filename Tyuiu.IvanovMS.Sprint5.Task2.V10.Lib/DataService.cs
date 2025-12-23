@@ -6,7 +6,7 @@ namespace Tyuiu.IvanovMS.Sprint5.Task2.V10.Lib
     {
         public string SaveToFileTextData(int[,] matrix)
         {
-            string path = $@"{Directory.GetCurrentDirectory()}\OutPutFileTask2.csv";
+            string path = Path.Combine(Path.GetTempPath(), "OutPutFileTask2.csv");
 
             FileInfo fileInfo = new FileInfo(path);
             bool fileExists = fileInfo.Exists;
@@ -44,7 +44,7 @@ namespace Tyuiu.IvanovMS.Sprint5.Task2.V10.Lib
                     }
                     else
                     {
-                        str = str+matrix[i, j];
+                        str = str + matrix[i, j];
                     }
                 }
                 if (i != rows - 1) 
