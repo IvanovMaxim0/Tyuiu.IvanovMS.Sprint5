@@ -11,8 +11,18 @@ namespace Tyuiu.IvanovMS.Sprint5.Task5.V17.Lib
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    res = res + Convert.ToDouble(line);
-                }
+                    string lineReplace = line.Replace('.', ',');
+                    string[] lineArray = lineReplace.Split(' ');
+
+                    foreach (string number in lineArray)
+                    {
+                        double lineParse = double.Parse(number);
+                        if (lineParse > 0)
+                        {
+                            res = res + lineParse;
+                        }
+                    }
+                }        
             }
             return Math.Round(res, 3);
         }
